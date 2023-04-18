@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 const Movies = () => {
-  const [value, setValue] = useState('');
-  useEffect(() => {}, [value]);
+  //   const [value, setValue] = useState('');
+  //   useEffect(() => {}, [value]);
 
   return (
     <form>

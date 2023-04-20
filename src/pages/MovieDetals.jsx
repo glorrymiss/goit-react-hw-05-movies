@@ -13,7 +13,7 @@ const MovieDetals = () => {
       setMovie(data);
     });
   }, [movieId]);
-  // console.log(movie);
+
   const {
     original_title,
     overview,

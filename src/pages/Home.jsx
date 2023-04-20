@@ -17,9 +17,9 @@ const Home = () => {
       <Title>Trending Today</Title>
       <ul>
         {movies.length &&
-          movies.map(({ title, id }) => {
+          movies.map(({ title, id }, index) => {
             return (
-              <li key={id}>
+              <li key={index}>
                 <NavLink to={`movies/${id}`}>{title}</NavLink>
               </li>
             );

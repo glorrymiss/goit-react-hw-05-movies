@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { NavLink } from 'react-router-dom';
 
 export const Container = styled.div`
   background-color: #696969;
@@ -7,7 +8,7 @@ export const Container = styled.div`
   align-items: center;
 `;
 
-export const NavText = styled.span`
+export const StyledLink = styled(NavLink)`
   font-size: 22px;
 
   color: lightpink;

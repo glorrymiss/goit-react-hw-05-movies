@@ -1,11 +1,13 @@
-// import { useEffect, useState } from 'react';
+// import { useState } from 'react';
 const Movies = () => {
-  //   const [value, setValue] = useState('');
-  //   useEffect(() => {}, [value]);
-
   return (
     <form>
-      <input type="text" />
+      <input
+        type="text"
+        name="nameValue"
+        // onChange={hendleInput}
+        // value={value}
+      />
       <button type="submit">Search</button>
     </form>
   );

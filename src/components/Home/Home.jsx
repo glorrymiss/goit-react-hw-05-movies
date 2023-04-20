@@ -1,17 +1,20 @@
-import { Link } from 'react-router-dom';
-import { useEffect } from 'react';
-import { Title } from '../Home/Home.styled';
+// import { NavLink } from 'react-router-dom';
 
-const Home = () => {
-  useEffect(() => {}, []);
+import { StyledLink, Title } from '../Home/Home.styled';
 
+const Home = ({ movies }) => {
   return (
     <>
       <Title>Trending Today</Title>
       <ul>
-        <li>
-          <Link>Popular films</Link>
-        </li>
+        {movies.length &&
+          movies.map(({ title }, index) => {
+            return (
+              <li key={index}>
+                <StyledLink>{title}</StyledLink>
+              </li>
+            );
+          })}
       </ul>
     </>
   );

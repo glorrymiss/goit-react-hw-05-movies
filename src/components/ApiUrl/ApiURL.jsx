@@ -1,8 +1,9 @@
 import axios from 'axios';
+const { useParams } = require('react-router-dom');
 // import { useState } from 'react';
 
-const URL = 'https://api.themoviedb.org/3/';
-const KEY = 'dc938579c590d583322532c91001c2e3';
+export const URL = 'https://api.themoviedb.org/3/';
+export const KEY = 'dc938579c590d583322532c91001c2e3';
 
 export const ApiTrendMovies = async () => {
   try {
@@ -27,9 +28,10 @@ export const ApiSearchMovies = async () => {
 };
 
 export const ApiDetalsMovies = async () => {
+  const { movieId } = useParams();
   try {
     const response = await axios.get(
-      `${URL}movie/272?api_key=${KEY}&language=en-US`
+      `${URL}movie/${movieId}?api_key=${KEY}&language=en-US`
     );
     return response.data;
     // const poster = `${URL}movie/1060385?api_key=${KEY}&language=en-US`;
@@ -39,6 +41,7 @@ export const ApiDetalsMovies = async () => {
 };
 
 export const ApiCastActors = async () => {
+  // const { movieId } = useParams();
   try {
     const response = await axios.get(
       `${URL}movie/272/credits?api_key=${KEY}&language=en-US`
@@ -50,7 +53,8 @@ export const ApiCastActors = async () => {
   }
 };
 
-export const ApiReviewsMovies = async () => {
+export const ApiReviewsMovies = async id => {
+  // const { movieId } = useParams();
   try {
     const response = await axios.get(
       `${URL}movie/272/reviews?api_key=${KEY}&language=en-US&page=1`

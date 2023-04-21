@@ -1,12 +1,29 @@
-// import { useState } from 'react';
-const Movies = () => {
+import { useState } from 'react';
+const Movies = ({ submit }) => {
+  const [nameValue, setNameValue] = useState('');
+
+  const hendleInput = event => {
+    setNameValue(event.currentTarget.value.toLowerCase());
+  };
+
+  const hendleSubmit = event => {
+    event.preventDefault();
+
+    if (nameValue.trim() === '') {
+      alert('Please enter the name of the movie');
+
+      return;
+    }
+
+    submit(nameValue);
+  };
   return (
-    <form>
+    <form onSubmit={hendleSubmit}>
       <input
         type="text"
         name="nameValue"
-        // onChange={hendleInput}
-        // value={value}
+        onChange={hendleInput}
+        value={nameValue}
       />
       <button type="submit">Search</button>
     </form>

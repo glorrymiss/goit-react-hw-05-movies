@@ -40,7 +40,7 @@ const Reviews = () => {
               </li>
             );
           })
-        : 'Not found'}
+        : 'Sorry, reviews not found'}
     </ul>
   );
 };

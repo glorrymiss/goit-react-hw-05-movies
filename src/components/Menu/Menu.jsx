@@ -1,15 +1,16 @@
-import { NavLink, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
+import { StyledLink } from './Menu.styled';
 
 const Menu = () => {
   return (
     <>
       <ul>
-        <h3>Additional informathion</h3>
+        <h2>Additional informathion</h2>
         <li>
-          <NavLink to="cast">Cast</NavLink>
+          <StyledLink to="cast">Cast</StyledLink>
         </li>
         <li>
-          <NavLink to="reviews">Reviews</NavLink>
+          <StyledLink to="reviews">Reviews</StyledLink>
         </li>
       </ul>
       <Outlet />

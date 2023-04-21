@@ -8,7 +8,7 @@ export const KEY = 'dc938579c590d583322532c91001c2e3';
 export const ApiTrendMovies = async () => {
   try {
     const responce = await axios.get(`${URL}trending/movie/day?api_key=${KEY}`);
-
+    console.log(responce.data.results);
     return responce.data;
   } catch (error) {
     console.log(error);

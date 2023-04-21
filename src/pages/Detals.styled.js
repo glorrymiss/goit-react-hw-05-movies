@@ -11,6 +11,8 @@ export const WrapText = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
+  /* align-items: center;
+  justify-content: start; */
 `;
 
 export const HomeWrap = styled.div`
@@ -29,11 +31,10 @@ export const List = styled.ul`
 export const Item = styled.li`
   display: flex;
   flex-direction: column;
-
   align-items: center;
-  justify-content: space-around;
   gap: 10px;
   border: 1px solid whitesmoke;
+  justify-content: space-around;
   padding: 10px;
   width: calc(((80%-80px) / 4));
 `;

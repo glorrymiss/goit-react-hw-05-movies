@@ -3,10 +3,12 @@ import Header from '../Header/Header';
 import { Container } from './Layout.styled';
 const Layout = () => {
   return (
-    <Container>
+    <>
       <Header />
-      <Outlet />
-    </Container>
+      <Container>
+        <Outlet />
+      </Container>
+    </>
   );
 };
 

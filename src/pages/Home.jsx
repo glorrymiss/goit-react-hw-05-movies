@@ -3,7 +3,8 @@ import { Title } from 'components/Home/Home.styled';
 import Loader from 'components/Loader/Loader';
 
 import { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Item, List, StyledLink } from './Detals.styled';
+import image from '../images/image.jpg';
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
@@ -11,7 +12,7 @@ const Home = () => {
   useEffect(() => {
     setLoading(true);
     ApiTrendMovies().then(data => {
-      setMovies(prevState => [...prevState, ...data.results]);
+      setMovies(data.results);
     });
     setLoading(false);
   }, []);
@@ -20,16 +21,25 @@ const Home = () => {
     <>
       <Title>Trending Today</Title>
       {loading && <Loader />}
-      <ul>
+      <List>
         {movies.length &&
-          movies.map(({ title, id }, index) => {
+          movies.map(({ title, id, poster_path }, index) => {
             return (
-              <li key={index}>
-                <NavLink to={`movies/${id}`}>{title}</NavLink>
-              </li>
+              <Item key={index}>
+                <img
+                  src={
+                    poster_path
+                      ? `https://image.tmdb.org/t/p/w500/${poster_path}`
+                      : image
+                  }
+                  alt={title}
+                  width="200"
+                />
+                <StyledLink to={`movies/${id}`}>{title}</StyledLink>
+              </Item>
             );
           })}
-      </ul>
+      </List>
     </>
   );
 };

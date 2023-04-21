@@ -5,7 +5,8 @@ import Loader from 'components/Loader/Loader';
 import Movies from 'components/Movies/Movies';
 
 import { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Item, List, StyledLink } from './Detals.styled';
+import image from '../images/image.jpg';
 const MoviesPage = () => {
   const [searchMovies, setSearchMovies] = useState([]);
   const [nameValue, setNameValue] = useState('');
@@ -41,17 +42,26 @@ const MoviesPage = () => {
     <>
       <Movies submit={hendleTakeSubmit} />
       {loading && <Loader />}
-      <ul>
+      <List>
         {searchMovies &&
-          searchMovies.map(({ title, id }, index) => {
+          searchMovies.map(({ title, id, poster_path }, index) => {
             console.log(id);
             return (
-              <li key={index}>
-                <NavLink to={`${id}`}>{title}</NavLink>
-              </li>
+              <Item key={index}>
+                <img
+                  src={
+                    poster_path
+                      ? `https://image.tmdb.org/t/p/w500/${poster_path}`
+                      : image
+                  }
+                  alt={title}
+                  width="200"
+                />
+                <StyledLink to={`${id}`}>{title}</StyledLink>
+              </Item>
             );
           })}
-      </ul>
+      </List>
     </>
   );
 };

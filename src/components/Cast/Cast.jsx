@@ -3,6 +3,8 @@ import { KEY, URL } from 'components/ApiUrl/ApiURL';
 import Loader from 'components/Loader/Loader';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import iconHuman from '../../images/iconHuman.png';
+import { Item, List } from './Cast.styled';
 
 const Cast = () => {
   const [actors, setActors] = useState([]);
@@ -30,28 +32,31 @@ const Cast = () => {
   return (
     <>
       {loading && <Loader />}
-      <ul>
+      <List>
         {actors.length > 0
           ? actors.map(({ cast_id, name, character, profile_path }) => {
               return (
-                <li key={cast_id}>
+                <Item key={cast_id}>
                   <img
                     src={
                       profile_path
                         ? `https://image.tmdb.org/t/p/w200/${profile_path}`
-                        : 'Sorry'
+                        : iconHuman
                     }
                     alt={name}
+                    width="200"
                   />
-                  <p>{name}</p>
-                  <p>
-                    <b>Character:</b> {character}
-                  </p>
-                </li>
+                  <div>
+                    <h3>{name}</h3>
+                    <p>
+                      <b>Character:</b> {character}
+                    </p>
+                  </div>
+                </Item>
               );
             })
-          : 'Not found'}
-      </ul>
+          : 'Sorry, cast not found'}
+      </List>
     </>
   );
 };

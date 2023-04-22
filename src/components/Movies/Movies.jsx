@@ -1,4 +1,5 @@
 import { useState } from 'react';
+
 const Movies = ({ submit }) => {
   const [nameValue, setNameValue] = useState('');
 

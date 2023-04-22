@@ -7,9 +7,11 @@ import Movies from 'components/Movies/Movies';
 import { useEffect, useState } from 'react';
 import { Item, List, StyledLink } from './Detals.styled';
 import image from '../images/image.jpg';
+// import { useSearchParams } from 'react-router-dom';
 const MoviesPage = () => {
   const [searchMovies, setSearchMovies] = useState([]);
   const [nameValue, setNameValue] = useState('');
+
   const [loading, setLoading] = useState(false);
 
   const hendleTakeSubmit = nameValue => {

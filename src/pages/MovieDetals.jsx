@@ -2,8 +2,8 @@
 import { KEY, URL } from 'components/ApiUrl/ApiURL';
 import Loader from 'components/Loader/Loader';
 import Menu from 'components/Menu/Menu';
-import { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import { Wrap, WrapText } from './Detals.styled';
 // import { NavLink } from 'react-router-dom';
 
@@ -11,7 +11,8 @@ const MovieDetals = () => {
   const [movie, setMovie] = useState('');
   const [loading, setLoading] = useState(false);
   const { movieId } = useParams();
-
+  const location = useLocation();
+  const backLink = useRef(location.state?.from ?? '/');
   useEffect(() => {
     if (movieId) {
       setLoading(true);
@@ -39,7 +40,7 @@ const MovieDetals = () => {
   return (
     <>
       <button type="button">
-        <Link to="/">On the main</Link>
+        <Link to={backLink.current}>On the main</Link>
       </button>
       {loading && <Loader />}
       {!loading && (

@@ -5,16 +5,21 @@ import Movies from 'components/Movies/Movies';
 import { useEffect, useState } from 'react';
 import { Item, List, StyledLink } from './Detals.styled';
 import image from '../images/image.jpg';
-import { useSearchParams } from 'react-router-dom';
+import { useLocation, useSearchParams } from 'react-router-dom';
 const MoviesPage = () => {
   const [searchMovies, setSearchMovies] = useState([]);
 
   const [searchParams, setSearchParams] = useSearchParams();
-  const query = searchParams.get('query');
+  const query = searchParams.get('query') ?? '';
 
   const [loading, setLoading] = useState(false);
 
+  const location = useLocation();
+
   const hendleTakeSubmit = nameValue => {
+    if (nameValue === '') {
+      return setSearchParams({});
+    }
     setSearchParams({ query: nameValue });
   };
 
@@ -55,7 +60,9 @@ const MoviesPage = () => {
                   alt={title}
                   width="200"
                 />
-                <StyledLink to={`${id}`}>{title}</StyledLink>
+                <StyledLink to={`${id}`} state={{ from: location }}>
+                  {title}
+                </StyledLink>
               </Item>
             );
           })}

@@ -40,6 +40,7 @@ export const Item = styled.li`
 
 export const StyledLink = styled(NavLink)`
   color: whitesmoke;
+  transition: color 250ms linear;
   :hover {
     color: orangered;
   }

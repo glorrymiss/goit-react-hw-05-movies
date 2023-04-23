@@ -41,6 +41,7 @@ export const Item = styled.li`
 
 export const StyledLink = styled(NavLink)`
   color: whitesmoke;
+  transition: color 250ms linear;
   :hover {
     color: orangered;
   }
@@ -55,6 +56,7 @@ export const Button = styled.button`
   height: 35px;
   border: solid 1px orangered;
   background-color: #333333;
+  transition: background-color 250ms linear;
   :hover,
   :focus {
     background-color: orangered;
@@ -63,6 +65,7 @@ export const Button = styled.button`
 
 export const StyledBtnLink = styled(NavLink)`
   color: orangered;
+  transition: color 250ms linear;
   :hover {
     color: #333333;
   }

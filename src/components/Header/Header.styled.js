@@ -13,6 +13,7 @@ export const StyledLink = styled(NavLink)`
 
   color: whitesmoke;
   margin-left: 60px;
+  transition: color 250ms linear;
 
   :hover {
     color: orangered;

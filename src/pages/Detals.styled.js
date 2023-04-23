@@ -56,7 +56,9 @@ export const Button = styled.button`
   height: 35px;
   border: solid 1px orangered;
   background-color: #333333;
+  margin-bottom: 5px;
   transition: background-color 250ms linear;
+
   :hover,
   :focus {
     background-color: orangered;

@@ -20,7 +20,7 @@ export const HomeWrap = styled.div`
 `;
 
 export const List = styled.ul`
-  margin: 0 auto;
+  margin: 20px auto;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;

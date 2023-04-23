@@ -1,5 +1,6 @@
 import { ApiSearchMovies } from 'components/ApiUrl/ApiURL';
 import Movies from 'components/Movies/Movies';
+import Notiflix from 'notiflix';
 
 import { useEffect, useState } from 'react';
 import { Item, List, StyledLink } from './Detals.styled';
@@ -23,7 +24,15 @@ const MoviesPage = () => {
   useEffect(() => {
     if (query) {
       ApiSearchMovies(query)
-        .then(data => setSearchMovies(data.results))
+        .then(data => {
+          if (data.results.length <= 0) {
+            Notiflix.Notify.failure(
+              ' Find nothing... Please input correct value'
+            );
+            return;
+          }
+          setSearchMovies(data.results);
+        })
         .catch(error => console.log(error));
     }
   }, [query]);

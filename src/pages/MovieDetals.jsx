@@ -1,8 +1,8 @@
 import { ApiDetalsMovies } from 'components/ApiUrl/ApiURL';
 import Menu from 'components/Menu/Menu';
 import { useEffect, useRef, useState } from 'react';
-import { Link, useLocation, useParams } from 'react-router-dom';
-import { Wrap, WrapText } from './Detals.styled';
+import { useLocation, useParams } from 'react-router-dom';
+import { Button, StyledBtnLink, Wrap, WrapText } from './Detals.styled';
 
 const MovieDetals = () => {
   const [movie, setMovie] = useState('');
@@ -24,9 +24,9 @@ const MovieDetals = () => {
   const { original_title, overview, poster_path, genres } = movie;
   return (
     <>
-      <button type="button">
-        <Link to={backLink.current}>On the main</Link>
-      </button>
+      <Button type="button">
+        <StyledBtnLink to={backLink.current}>To back</StyledBtnLink>
+      </Button>
       <Wrap>
         <div>
           <img

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Button, Input } from './Movies.styled';
 import PropTypes from 'prop-types';
+import Notiflix from 'notiflix';
 const Movies = ({ submit }) => {
   const [nameValue, setNameValue] = useState('');
 
@@ -12,12 +13,13 @@ const Movies = ({ submit }) => {
     event.preventDefault();
 
     if (nameValue.trim() === '') {
-      alert('Please enter the name of the movie');
+      Notiflix.Notify.failure('Please enter the name of the movie');
 
       return;
     }
 
     submit(nameValue);
+    setNameValue('');
   };
   return (
     <form onSubmit={hendleSubmit}>
@@ -26,6 +28,7 @@ const Movies = ({ submit }) => {
         name="nameValue"
         onChange={hendleInput}
         value={nameValue}
+        placeholder="Enter name movie..."
       />
       <Button type="submit">Search</Button>
     </form>

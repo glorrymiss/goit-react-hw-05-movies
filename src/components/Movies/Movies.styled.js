@@ -1,12 +1,14 @@
 import styled from '@emotion/styled';
 
 export const Input = styled.input`
-  width: 250px;
+  min-width: 250px;
   min-height: 30px;
   border: none;
   outline: none;
   border-radius: 4px;
   margin: 0 auto;
+  padding-left: 8px;
+  padding-right: 8px;
 `;
 
 export const Button = styled.button`
@@ -16,4 +18,9 @@ export const Button = styled.button`
   color: orangered;
   width: 60px;
   height: 35px;
+  :hover,
+  :focus {
+    color: #333333;
+    background-color: orangered;
+  }
 `;

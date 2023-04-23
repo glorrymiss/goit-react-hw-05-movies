@@ -45,3 +45,25 @@ export const StyledLink = styled(NavLink)`
     color: orangered;
   }
 `;
+
+export const Button = styled.button`
+  /* display: block; */
+  border: none;
+  border-radius: 50%;
+  color: orangered;
+  width: 60px;
+  height: 35px;
+  border: solid 1px orangered;
+  background-color: #333333;
+  :hover,
+  :focus {
+    background-color: orangered;
+  }
+`;
+
+export const StyledBtnLink = styled(NavLink)`
+  color: orangered;
+  :hover {
+    color: #333333;
+  }
+`;

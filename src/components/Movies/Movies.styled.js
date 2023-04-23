@@ -1,12 +1,16 @@
 import styled from '@emotion/styled';
 
+export const Form = styled.form`
+  padding: 20px 200px;
+`;
+
 export const Input = styled.input`
   min-width: 250px;
   min-height: 30px;
   border: none;
   outline: none;
   border-radius: 4px;
-  margin: 0 auto;
+  margin: 0 10px;
   padding-left: 8px;
   padding-right: 8px;
 `;

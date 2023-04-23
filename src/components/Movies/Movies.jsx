@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, Input } from './Movies.styled';
+import { Button, Form, Input } from './Movies.styled';
 import PropTypes from 'prop-types';
 import Notiflix from 'notiflix';
 const Movies = ({ submit }) => {
@@ -22,7 +22,7 @@ const Movies = ({ submit }) => {
     setNameValue('');
   };
   return (
-    <form onSubmit={hendleSubmit}>
+    <Form onSubmit={hendleSubmit}>
       <Input
         type="text"
         name="nameValue"
@@ -31,7 +31,7 @@ const Movies = ({ submit }) => {
         placeholder="Enter name movie..."
       />
       <Button type="submit">Search</Button>
-    </form>
+    </Form>
   );
 };
 

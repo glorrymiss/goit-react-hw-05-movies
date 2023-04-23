@@ -1,6 +1,5 @@
-// import { ApiCastActors } from 'components/ApiUrl/ApiURL';
-import { KEY, URL } from 'components/ApiUrl/ApiURL';
-import Loader from 'components/Loader/Loader';
+import { ApiCastActors } from 'components/ApiUrl/ApiURL';
+
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import iconHuman from '../../images/iconHuman.png';
@@ -8,30 +7,17 @@ import { Item, List } from './Cast.styled';
 
 const Cast = () => {
   const [actors, setActors] = useState([]);
-  const [loading, setLoading] = useState(false);
   const { movieId } = useParams();
 
   useEffect(() => {
     if (movieId) {
-      setLoading(true);
-      fetch(`${URL}movie/${movieId}/credits?api_key=${KEY}&language=en-US`)
-        .then(response => {
-          if (response.ok) {
-            return response.json();
-          }
-          return Promise.reject(new Error(`Sorry, not found`));
-        })
+      ApiCastActors(movieId)
         .then(data => setActors(data.cast))
-        .catch(error => console.log(error))
-        .finally(() => setLoading(false));
+        .catch(error => console.log(error));
     }
-    // ApiCastActors(id).then(data => {
-    //   return setActors(data.cast);
-    // });
   }, [movieId]);
   return (
     <>
-      {loading && <Loader />}
       <List>
         {actors.length > 0
           ? actors.map(({ cast_id, name, character, profile_path }) => {

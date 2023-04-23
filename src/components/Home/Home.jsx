@@ -1,6 +1,5 @@
-// import { NavLink } from 'react-router-dom';
-
 import { StyledLink, Title } from '../Home/Home.styled';
+import PropTypes from 'prop-types';
 
 const Home = ({ movies }) => {
   return (
@@ -18,6 +17,10 @@ const Home = ({ movies }) => {
       </ul>
     </>
   );
+};
+Home.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
+  title: PropTypes.string.isRequired,
 };
 
 export default Home;

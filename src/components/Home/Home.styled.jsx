@@ -6,7 +6,6 @@ export const Title = styled.h2`
   color: white;
   margin: 20px;
 `;
-
 export const StyledLink = styled(NavLink)`
   color: black;
 

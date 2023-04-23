@@ -1,5 +1,6 @@
 import { useState } from 'react';
-
+import { Button, Input } from './Movies.styled';
+import PropTypes from 'prop-types';
 const Movies = ({ submit }) => {
   const [nameValue, setNameValue] = useState('');
 
@@ -20,14 +21,18 @@ const Movies = ({ submit }) => {
   };
   return (
     <form onSubmit={hendleSubmit}>
-      <input
+      <Input
         type="text"
         name="nameValue"
         onChange={hendleInput}
         value={nameValue}
       />
-      <button type="submit">Search</button>
+      <Button type="submit">Search</Button>
     </form>
   );
+};
+
+Movies.propTypes = {
+  submit: PropTypes.func.isRequired,
 };
 export default Movies;

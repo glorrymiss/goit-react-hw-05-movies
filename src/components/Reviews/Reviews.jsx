@@ -1,36 +1,19 @@
-import { URL, KEY } from 'components/ApiUrl/ApiURL';
-import Loader from 'components/Loader/Loader';
+import { ApiReviewsMovies } from 'components/ApiUrl/ApiURL';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
-  const [loading, setLoading] = useState(false);
   const { movieId } = useParams();
   useEffect(() => {
     if (movieId) {
-      setLoading(true);
-      fetch(
-        `${URL}movie/${movieId}/reviews?api_key=${KEY}&language=en-US&page=1`
-      )
-        .then(response => {
-          if (response.ok) {
-            return response.json();
-          }
-          return Promise.reject(new Error(`Sorry, not found`));
-        })
+      ApiReviewsMovies(movieId)
         .then(data => setReviews(data.results))
-        .catch(error => console.log(error))
-        .finally(() => setLoading(false));
+        .catch(error => console.log(error));
     }
-    //   useEffect(() => {
-    //     ApiReviewsMovies().then(data => {
-    //       return setReviews(data.results);
-    //     });
   }, [movieId]);
   return (
     <ul>
-      {loading && <Loader />}
       {reviews.length
         ? reviews.map(({ author, id, content }) => {
             return (

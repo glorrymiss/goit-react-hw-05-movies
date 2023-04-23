@@ -1,5 +1,4 @@
-import { KEY, URL } from 'components/ApiUrl/ApiURL';
-import Loader from 'components/Loader/Loader';
+import { ApiSearchMovies } from 'components/ApiUrl/ApiURL';
 import Movies from 'components/Movies/Movies';
 
 import { useEffect, useState } from 'react';
@@ -12,8 +11,6 @@ const MoviesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('query') ?? '';
 
-  const [loading, setLoading] = useState(false);
-
   const location = useLocation();
 
   const hendleTakeSubmit = nameValue => {
@@ -25,26 +22,15 @@ const MoviesPage = () => {
 
   useEffect(() => {
     if (query) {
-      setLoading(true);
-      fetch(
-        `${URL}search/movie?api_key=${KEY}&language=en-US&page=1&include_adult=false&query=${query}`
-      )
-        .then(response => {
-          if (response.ok) {
-            return response.json();
-          }
-          return Promise.reject(new Error(`Sorry, not found`));
-        })
+      ApiSearchMovies(query)
         .then(data => setSearchMovies(data.results))
-        .catch(error => console.log(error))
-        .finally(() => setLoading(false));
+        .catch(error => console.log(error));
     }
   }, [query]);
 
   return (
     <>
       <Movies submit={hendleTakeSubmit} />
-      {loading && <Loader />}
       <List>
         {searchMovies &&
           searchMovies.map(({ title, id, poster_path }, index) => {

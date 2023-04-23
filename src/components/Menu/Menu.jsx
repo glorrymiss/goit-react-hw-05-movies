@@ -1,5 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import { StyledLink } from './Menu.styled';
+import { Suspense } from 'react';
+import Loader from 'components/Loader/Loader';
 
 const Menu = () => {
   return (
@@ -13,7 +15,9 @@ const Menu = () => {
           <StyledLink to="reviews">Reviews</StyledLink>
         </li>
       </ul>
-      <Outlet />
+      <Suspense fallback={<Loader />}>
+        <Outlet />
+      </Suspense>
     </>
   );
 };

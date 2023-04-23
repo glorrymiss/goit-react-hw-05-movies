@@ -4,13 +4,13 @@ import { NavLink } from 'react-router-dom';
 export const FooterBack = styled.div`
   min-height: 50px;
   width: 100%;
-  background-color: #222222;
+  background-color: #333333;
   padding: 20px;
   position: absolute;
 `;
 
 export const Title = styled.h2`
-  font-size: 22px;
+  font-size: 18px;
   color: white;
 `;
 

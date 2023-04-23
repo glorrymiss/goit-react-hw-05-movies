@@ -9,7 +9,7 @@ const Home = () => {
   const [movies, setMovies] = useState([]);
   useEffect(() => {
     ApiTrendMovies().then(data => {
-      setMovies(data.results);
+      setMovies(data.results).catch(error => console.log(error));
     });
   }, []);
 

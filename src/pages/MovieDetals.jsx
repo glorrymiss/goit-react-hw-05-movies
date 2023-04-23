@@ -3,17 +3,21 @@ import Menu from 'components/Menu/Menu';
 import { useEffect, useRef, useState } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import { Button, StyledBtnLink, Wrap, WrapText } from './Detals.styled';
+import Loader from 'components/Loader/Loader';
 
 const MovieDetals = () => {
   const [movie, setMovie] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const { movieId } = useParams();
   const location = useLocation();
   const backLink = useRef(location.state?.from ?? '/');
   useEffect(() => {
     if (movieId) {
+      setIsLoading(true);
       ApiDetalsMovies(movieId)
         .then(data => setMovie(data))
-        .catch(error => console.log(error));
+        .catch(error => console.log(error))
+        .finally(setIsLoading(false));
     }
   }, [movieId]);
 
@@ -24,6 +28,7 @@ const MovieDetals = () => {
   const { original_title, overview, poster_path, genres } = movie;
   return (
     <>
+      {isLoading && <Loader />}
       <Button type="button">
         <StyledBtnLink to={backLink.current}>To back</StyledBtnLink>
       </Button>

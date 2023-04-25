@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 
 export const List = styled.ul`
   margin: 20px auto;
+  margin-bottom: 60px;
 `;
 
 export const Title = styled.h2`

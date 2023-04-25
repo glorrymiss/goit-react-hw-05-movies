@@ -1,9 +1,9 @@
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 
-export const Title = styled.h2`
-  font-size: 36px;
-  color: white;
+export const Title = styled.h1`
+  font-size: 32px;
+  color: green;
   margin: 20px;
 `;
 export const StyledLink = styled(NavLink)`

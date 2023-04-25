@@ -3,10 +3,12 @@ import Movies from 'components/Movies/Movies';
 import Notiflix from 'notiflix';
 
 import { useEffect, useState } from 'react';
-import { Item, List, StyledLink } from './Detals.styled';
-import image from '../images/image.jpg';
+import { Item, List, StyledLink, Title } from './Detals.styled';
 import { useLocation, useSearchParams } from 'react-router-dom';
 import Loader from 'components/Loader/Loader';
+
+import img from '../images/img.jpg';
+
 const MoviesPage = () => {
   const [searchMovies, setSearchMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -50,17 +52,18 @@ const MoviesPage = () => {
             console.log(id);
             return (
               <Item key={index}>
-                <img
-                  src={
-                    poster_path
-                      ? `https://image.tmdb.org/t/p/w500/${poster_path}`
-                      : image
-                  }
-                  alt={title}
-                  width="200"
-                />
                 <StyledLink to={`${id}`} state={{ from: location }}>
-                  {title}
+                  <img
+                    src={
+                      poster_path
+                        ? `https://image.tmdb.org/t/p/w500/${poster_path}`
+                        : img
+                    }
+                    alt={title}
+                    width="200"
+                  />
+
+                  <Title>{title}</Title>
                 </StyledLink>
               </Item>
             );

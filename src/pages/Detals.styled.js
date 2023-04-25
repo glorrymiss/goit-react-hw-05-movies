@@ -5,6 +5,7 @@ export const Wrap = styled.div`
   display: flex;
   gap: 20px;
   align-items: center;
+  justify-content: center;
 `;
 
 export const WrapText = styled.div`
@@ -23,23 +24,25 @@ export const HomeWrap = styled.div`
 
 export const List = styled.ul`
   margin: 20px auto;
+  margin-bottom: 60px;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   width: 80%;
 `;
 export const Item = styled.li`
+  border: 1px solid whitesmoke;
+  justify-content: space-around;
+
+  width: calc(((90%-60px) / 4));
+`;
+
+export const StyledLink = styled(NavLink)`
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  border: 1px solid whitesmoke;
-  justify-content: space-around;
   padding: 10px;
-  width: calc(((80%-80px) / 4));
-`;
-
-export const StyledLink = styled(NavLink)`
   color: whitesmoke;
   transition: color 250ms linear;
   :hover {
@@ -71,4 +74,15 @@ export const StyledBtnLink = styled(NavLink)`
   :hover {
     color: #333333;
   }
+`;
+
+export const Title = styled.h2`
+  font-size: 18px;
+  margin: 0 14px;
+`;
+
+export const MainTitle = styled.h1`
+  font-size: 28px;
+  color: whitesmoke;
+  margin: 10px auto;
 `;

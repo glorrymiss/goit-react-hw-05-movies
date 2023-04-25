@@ -1,10 +1,9 @@
-import { FooterBack, StyledLink, Title } from './Footer.styled';
+import { FooterBack, List, StyledLink } from './Footer.styled';
 
 export const Footer = () => {
   return (
     <FooterBack>
-      <Title>General information</Title>
-      <ul>
+      <List>
         <li>
           <StyledLink to="#">Media center</StyledLink>
         </li>
@@ -14,7 +13,7 @@ export const Footer = () => {
         <li>
           <StyledLink to="#">Contact us</StyledLink>
         </li>
-      </ul>
+      </List>
     </FooterBack>
   );
 };
